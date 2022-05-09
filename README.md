@@ -1,11 +1,11 @@
 ﻿# Sistema de estoque-Web
 
-As dependências do projeto que estão na pasta node_modules deve ser baixada por cada integrante do grupo, utilizando o npm install
-
 Requisitos para desenvolvedor:
 <ul>
   <li>Git</li>
-  <li>Node v16.14.0</li>
+  <li>Java</li>
+  <li>JDK 8</li>
+  <li>MySQL</li>
 </ul>
 
 Documentações:
