@@ -1,35 +1,9 @@
-<div id="nav" class="bg-dark d-flex justify-content-between align-items-center position-fixed w-100">
-    <a href="./" class="h-100">
-        <img src="../assets/images/logo/Logo.png" alt="Logo" id="logo" class="h-100">
+<div id="nav" class="bg-dark d-flex justify-content-between align-items-center w-100 mb-2">
+    <span class="ms-3" style="width: 25px;"></span>
+    <a href="../menu" class="h-100">
+        <img src="../../../assets/images/logo/Logo.png" alt="Logo" id="logo" class="h-100">
     </a>
-
-    <span type="button" class="text-white me-3" data-bs-toggle="modal" data-bs-target="#login">
-        Login
-    </span>
-
-    <div class="modal fade" id="login" tabindex="-1" aria-labelledby="loginLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="loginLabel">Login</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="input-group input-group-sm mb-3">
-                            <input type="text" class="form-control" placeholder="Usuário" aria-label="Username">
-                        </div>
-                        <div class="input-group input-group-sm mb-3">
-                            <input type="password" class="form-control" placeholder="Senha" aria-label="Password">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-sm btn-primary">Login</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <a href="../../auth.html" class="me-3">
+        <i class="fa-solid fa-right-from-bracket text-white" id="logout" style="font-size: 25px;"></i>
+    </a>
 </div>

@@ -1,0 +1,23 @@
+main {
+    padding-top: 40px;
+}
+
+.menu {
+    background-color: rgb(220, 220, 220);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.menu:hover {
+    transform: scale(1.02);
+}
+
+.legenda {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    opacity: 0.9;
+}
+
+.fa-solid {
+    font-size: 100px;
+}

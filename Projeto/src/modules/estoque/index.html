@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="../../components/NavBar/NabBar.css">
+    <link rel="stylesheet" type="text/css" href="../../components/Footer/Footer.css">
+
+    <title>Depósito</title>
+</head>
+
+<body>
+
+    <header id="NavBar"></header>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb ps-2 fw-bold">
+            <li class="breadcrumb-item"><a href="../menu/">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Estoque</li>
+        </ol>
+    </nav>
+    
+    <main class="container">
+        <form class="col-12 col-md-6 float-end row justify-content-between mb-3">
+            <div class="col-8 p-0">
+                <div class="input-group input-group-sm">
+                    <input type="search" class="form-control" placeholder="Buscar por código, nome ou categoria"/>
+                    <button type="button" class="btn btn-outline-primary">Buscar</button>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-primary btn-sm col-3" data-bs-toggle="modal" data-bs-target="#infoProduto">
+                <i class="fa-solid fa-plus"></i> Novo
+            </button>
+        </form>
+
+        <div>
+            <table class="table table-info table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Código</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Categoria</th>
+                        <td scope="col">Preço</td>
+                        <td scope="col">Em Estoque</td>
+                        <th scope="col">Opções</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">0001</th>
+                        <td>Produto 1</td>
+                        <td>Argamassa</td>
+                        <td>R$ 40,00</td>
+                        <td>10</td>
+                        <td>
+                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#infoProduto">
+                                <i class="fa-solid fa-pencil"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">0002</th>
+                        <td>Produto 2</td>
+                        <td>Revestimentos</td>
+                        <td>R$ 50,00</td>
+                        <td>25</td>
+                        <td>
+                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#infoProduto">
+                                <i class="fa-solid fa-pencil"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">0003</th>
+                        <td>Produto 3</td>
+                        <td>Sanitários</td>
+                        <td>R$ 80,00</td>
+                        <td>8</td>
+                        <td>
+                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#infoProduto">
+                                <i class="fa-solid fa-pencil"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- MODAL -->
+        <div class="modal fade" id="infoProduto" tabindex="-1" aria-labelledby="infoProdutoLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="infoProdutoLabel">Novo Produto</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="nome" class="form-label">Nome</label>
+                                <input type="text" class="form-control form-control-sm" id="nome">
+                                <div id="emailHelp" class="form-text"></div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-4 col-12 mb-3 mb-md-0">
+                                    <label for="categoria" class="form-label">Categoria</label>
+                                    <select class="form-select form-select-sm" id="categoria">
+                                        <option selected>Selecione</option>
+                                        <option value="1">Argamassa</option>
+                                        <option value="2">Revestimentos</option>
+                                        <option value="3">Sanitários</option>
+                                      </select>
+                                </div>
+                                <div class="col-md-4 col-12 mb-3 mb-md-0">
+                                    <label for="preco" class="form-label">Preço</label>
+                                    <input type="text" class="form-control form-control-sm" id="preco">
+                                </div>
+                                <div class="col-md-4 col-12 mb-3 mb-md-0">
+                                    <label for="estoque" class="form-label">Em Estoque</label>
+                                    <input type="number" class="form-control form-control-sm" id="estoque">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-6">
+                                    <label for="marca" class="form-label">Marca</label>
+                                    <input type="text" class="form-control form-control-sm" id="marca">
+                                </div>
+                                <div class="col-6">
+                                    <label for="modelo" class="form-label">Modelo</label>
+                                    <input type="text" class="form-control form-control-sm" id="modelo">
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="adicionais" class="form-label">Adicionais</label>
+                                <textarea class="form-control" id="adicionais" placeholder="Informações adicionais"></textarea>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer id="Footer"></footer>
+
+    <!-- SCRIPTS -->
+    <script src="../../../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../../../node_modules/@popperjs/core/dist/umd/popper.js"></script>
+    <script src="../../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="https://kit.fontawesome.com/be4eb3232c.js" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>

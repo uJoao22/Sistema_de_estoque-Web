@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="../../components/NavBar/NabBar.css">
+    <link rel="stylesheet" type="text/css" href="../../components/Footer/Footer.css">
+
+    <title>Depósito</title>
+</head>
+
+<body>
+
+    <header id="NavBar"></header>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb ps-2 fw-bold">
+            <li class="breadcrumb-item"><a href="../menu/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Gerar Venda</li>
+        </ol>
+    </nav>
+
+    <main class="container-fluid">
+        <div class="row">
+            <div class="col-md-9 col-12 mb-4 mb-md-0">
+                <form class="d-flex justify-content-end mb-3">
+                    <div class="input-group input-group-sm w-50">
+                        <input type="search" class="form-control" placeholder="Insira o código do produto" />
+                        <button type="button" class="btn btn-outline-primary">Buscar</button>
+                    </div>
+                </form>
+
+                <div>
+                    <table class="table table-info table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Código</th>
+                                <th scope="col">Nome</th>
+                                <td scope="col">Preço</td>
+                                <td scope="col">Quantidade</td>
+                                <td scope="col">Opções</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">0001</th>
+                                <td>Produto 1</td>
+                                <td>R$ 40,00</td>
+                                <td>2</td>
+                                <td>
+                                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                        data-bs-target="#removeProduto">
+                                        <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">0002</th>
+                                <td>Produto 2</td>
+                                <td>R$ 50,00</td>
+                                <td>1</td>
+                                <td>
+                                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                        data-bs-target="#removeProduto">
+                                        <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">0003</th>
+                                <td>Produto 3</td>
+                                <td>R$ 80,00</td>
+                                <td>1</td>
+                                <td>
+                                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                        data-bs-target="#removeProduto">
+                                        <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-12 mb-3 mb-md-0">
+                <div class="mb-4 text-center opPagamento p-2">
+                    R$ 203,70 <br>
+                    A Vista
+                </div>
+
+                <div class="mb-4 text-center opPagamento p-2">
+                    R$ 210,00 <br>
+                    Crédito
+                </div>
+
+                <button type="button" class="btn btn-success w-100" disabled>
+                    Finalizar
+                </button>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="removeProduto" tabindex="-1" aria-labelledby="removeProdutoLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="removeProdutoLabel">Confirmação</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Tem certeza que deseja remover o produto da lista de compra?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-danger">Remover</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="Footer"></footer>
+
+    <!-- SCRIPTS -->
+    <script src="../../../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../../../node_modules/@popperjs/core/dist/umd/popper.js"></script>
+    <script src="../../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="https://kit.fontawesome.com/be4eb3232c.js" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>

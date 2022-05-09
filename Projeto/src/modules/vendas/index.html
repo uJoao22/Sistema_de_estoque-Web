@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="../../components/NavBar/NabBar.css">
+    <link rel="stylesheet" type="text/css" href="../../components/Footer/Footer.css">
+
+    <title>Depósito</title>
+</head>
+
+<body>
+
+    <header id="NavBar"></header>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb ps-2 fw-bold">
+            <li class="breadcrumb-item"><a href="../menu/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Vendas</li>
+        </ol>
+    </nav>
+
+    <main class="container">
+        <form class="col-12 col-md-6 float-end row justify-content-between mb-3">
+            <div class="col-8 p-0">
+                <div class="input-group input-group-sm">
+                    <input type="search" class="form-control" placeholder="Buscar por data"/>
+                    <button type="button" class="btn btn-outline-primary">Buscar</button>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-primary btn-sm col-3" id="novaVenda">
+                <i class="fa-solid fa-plus"></i> Novo
+            </button>
+        </form>
+
+
+
+        <div>
+            <table class="table table-info table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Código</th>
+                        <th scope="col">Data</th>
+                        <td scope="col">Forma de Pagamento</td>
+                        <td>Opções</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">0001</th>
+                        <td>Venda 1</td>
+                        <td>Cartão de Crédito</td>
+                        <td>
+                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#infoVenda">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">0002</th>
+                        <td>Venda 2</td>
+                        <td>Dinheiro</td>
+                        <td>
+                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#infoVenda">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">0003</th>
+                        <td>Venda 3</td>
+                        <td>PIX</td>
+                        <td>
+                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#infoVenda">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="infoVenda" tabindex="-1" aria-labelledby="infoVendaLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="infoVendaLabel">Venda - Código xxxx</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="h-75" style="overflow-y: visible;">
+                            <table class="table table-info table-striped" >
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Código</th>
+                                        <th scope="col">Nome</th>
+                                    <td scope="col">Preço</td>
+                                    <td scope="col">Quantidade</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">0001</th>
+                                    <td>Produto 1</td>
+                                    <td>R$ 40,00</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">0002</th>
+                                    <td>Produto 2</td>
+                                    <td>R$ 50,00</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">0003</th>
+                                    <td>Produto 3</td>
+                                    <td>R$ 80,00</td>
+                                    <td>1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-6">
+                                <label for="pagamento" class="form-label">Forma de Pagamento</label>
+                                <input type="text" class="form-control" id="pagamento" value="Dinheiro" disabled>
+                            </div>
+                            <div class="col-6">
+                                <label for="total" class="form-label">Total</label>
+                                <input type="text" class="form-control" id="total"
+                                value="R$ 210,00" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">
+                            Sair
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="Footer"></footer>
+    
+    <!-- SCRIPTS -->
+    <script src="../../../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../../../node_modules/@popperjs/core/dist/umd/popper.js"></script>
+    <script src="../../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="https://kit.fontawesome.com/be4eb3232c.js" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
