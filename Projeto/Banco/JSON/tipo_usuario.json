@@ -1,0 +1,18 @@
+[
+    {
+        "id_tipo": 1,
+        "nivel": "Gerente"
+    },
+    {
+        "id_tipo": 2,
+        "nivel": "Caixa"
+    },
+    {
+        "id_tipo": 3,
+        "nivel": "Vendedor"
+    },
+    {
+        "id_tipo": 1,
+        "nivel": "Repositor"
+    }
+]
