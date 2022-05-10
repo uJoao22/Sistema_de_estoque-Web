@@ -1,0 +1,31 @@
+[{
+        "codigo_produto": 1,
+        "nome": "Produto 1",
+        "id_categoria": 1,
+        "preco": 40.00,
+        "quantidade": 10,
+        "marca": "Marca 1",
+        "modelo": "Modelo x",
+        "adicionais": null
+    },
+    {
+        "codigo_produto": 2,
+        "nome": "Produto 2",
+        "id_categoria": 2,
+        "preco": 50.00,
+        "quantidade": 25,
+        "marca": "Marca 2",
+        "modelo": "Modelo y",
+        "adicionais": "Este produto é muito útil."
+    },
+    {
+        "codigo_produto": 3,
+        "nome": "Produto 3",
+        "id_categoria": 3,
+        "preco": 80.00,
+        "quantidade": 8,
+        "marca": "Marca 3",
+        "modelo": "Modelo z",
+        "adicionais": null
+    }
+]
