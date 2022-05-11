@@ -1,11 +1,11 @@
 [
     {
         "id_categoria": 1,
-        "nome": "Argamassa"
+        "nome": "Revestimentos"
     },
     {
         "id_categoria": 2,
-        "nome": "Revestimentos"
+        "nome": "Argamassa"
     },
     {
         "id_categoria": 3,
