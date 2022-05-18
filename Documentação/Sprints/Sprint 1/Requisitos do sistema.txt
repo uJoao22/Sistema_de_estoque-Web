@@ -1,0 +1,25 @@
+REQUISITOS FUNCIONAIS
+- O sistema deve mostrar todas as categorias dos produtos
+- O sistema deve exibir todos os produtos a partir de um filtro de determinada categoria
+- O sistema deve exibir todas as informações disponiveis do produto para o usuário
+- O sistema deve ser capaz de verificar se um produto possui estoque ou não
+- Caso no sistema o produto possua estoque deve ser capaz de gerar uma reserva e enviar para os administradores os dados dela
+- Caso não possua estoque do produto, deve exibir uma opção de ser alertado quando houver reposição
+
+- Os personas do suporte devem ser capazes de fazer o login para ter acesso ao dashboard
+- O sistema deve permitir criar e editar uma categoria
+- O sistema deve permitir criar e editar um produto
+- O sistema deve ser capaz de gerenciar os produtos que estão em estoque e que estão fora de estoque
+- O sistema deve gerar uma nova venda e ver os dados de vendas antigas
+- O sistema deve ser capaz de exibir os dados das reservas de produtos na loja
+- O sistema deve ser capaz de exibir as informações dos usuários que desejam receber notificações de reposição de estoque
+
+
+REQUISITOS NÃO FUNCIONAIS
+– O sistema deverá estar disponível 7/24 (7 dias por semana 24 horas por dia).
+- O processo de desenvolvimento deverá utilizar html, css, javascript, C# e banco de dados MySQL
+- O site deverá estar disponível em um ambiente na internet e 100% funcional
+- O sistema deverá utilizar uma API do google fotos para salvar e armazenar as fotos dos produtos e categorias, para otimizar o sistema
+- O site deve ser 100% responsivo, se adaptando a telas de telefones, tablets, notebooks e computadores
+- O sistema deve enviar emails para o usuário e ou os administradores através de um serviço para desenvolvimento
+- O sistema deve ser capaz de conectar o front end ao back-end e fazer uma api para realizar um crud no banco de dados

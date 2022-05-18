@@ -1,0 +1,21 @@
+body{
+    background-image: url('../assets/images/logo/background.jpeg');
+    background-size: cover;
+    background-position-y: -100px;
+}
+
+/* Caixa de Login*/
+
+#login-container{
+    background-color: #fff;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 30px;
+    margin-top: 15vh;
+    border-radius: 10px;
+}
+
+label, input{
+    font-size: 15px;
+}
