@@ -23,7 +23,7 @@ public class Categoria {
 	}
 	
 	@Id
-	@Column(name = "codigo_produto")
+	@Column(name = "id_categoria")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long getId() {
 		return id;

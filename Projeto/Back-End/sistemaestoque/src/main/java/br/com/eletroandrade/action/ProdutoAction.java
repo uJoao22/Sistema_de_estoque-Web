@@ -1,18 +1,39 @@
 package br.com.eletroandrade.action;
 
-import javax.ws.rs.Consumes;
+import java.util.List;
+
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import br.com.eletroandrade.dao.ProdutoDao;
+import br.com.eletroandrade.model.Produto;
+
 @Path("produtos")
-@Produces("application/json;charset=UTF-8")
-@Consumes("application/json;charset=UTF-8")
+@Produces(MediaType.APPLICATION_JSON)
+@RequestScoped
 public class ProdutoAction {
+	@Inject
+	private ProdutoDao produtoDao;
+	
+	private Response buildResponse(Produto produto){
+		return Response.ok(produto).build();
+	}
+
 
 	@GET
-	public Response listProdutos() {
-		return null;
+	public List<Produto> listProdutos() {
+		return produtoDao.listAll();
+	}
+	
+	@GET
+	@Path("{id}")
+	public Response findProdutoById(@PathParam("id") Long id) {
+		return buildResponse(produtoDao.findProdutoById(id));
 	}
 }
