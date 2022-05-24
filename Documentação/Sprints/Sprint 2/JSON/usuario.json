@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "nome": "Andrade",
+        "cpf": "123.456.789-00",
+        "email": "andrade@eletroandrade.com",
+        "id_tipo": 1,
+        "senha": "andrade123"
+    },
+    {
+        "id": 2,
+        "nome": "Janaina",
+        "cpf": "789.654.321-11",
+        "email": "janaina@eletroandrade.com",
+        "id_tipo": 2,
+        "senha": "janaina123"
+    },
+    {
+        "id": 3,
+        "nome": "Claudio",
+        "cpf": "444.444.444-88",
+        "email": "claudio@eletroandrade.com",
+        "id_tipo": 3,
+        "senha": "claudio123"
+    },
+    {
+        "id": 4,
+        "nome": "Roberto",
+        "cpf": "888.555.222-77",
+        "email": "roberto@eletroandrade.com",
+        "id_tipo": 4,
+        "senha": "roberto123"
+    }
+]

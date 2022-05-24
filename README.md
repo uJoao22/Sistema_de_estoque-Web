@@ -1,5 +1,9 @@
 ﻿# Sistema de estoque-Web
 
+Para acessar o template visual acesse:
+https://ujoao22.github.io/Sistema_de_estoque-Web/Projeto/Front-End/src/auth.html
+
+
 Requisitos para desenvolvedor:
 <ul>
   <li>Git</li>
