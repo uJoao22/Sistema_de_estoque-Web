@@ -16,7 +16,7 @@ public abstract class Action<E, T> implements Serializable {
 		return Response.ok().build();
 	}
 
-	public abstract Response update(T id, E item);
+	public abstract Response update(E item);
 	public abstract Response remove(T id);
 	public abstract Response cria(E item);
 	public abstract E localiza(T id);

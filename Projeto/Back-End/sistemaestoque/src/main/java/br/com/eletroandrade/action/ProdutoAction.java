@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -32,9 +33,11 @@ public class ProdutoAction extends Action<Produto, Long> {
 		return dao.listAll();
 	}
 
+	@PUT
 	@Override
-	public Response update(Long id, Produto item) {
-		return null;
+	public Response update(Produto item) {
+		dao.atualizar(item);
+		return buildResponse(item);
 	}
 
 	@DELETE
@@ -42,7 +45,7 @@ public class ProdutoAction extends Action<Produto, Long> {
 	@Path("{id}")
 	public Response remove(@PathParam("id") Long id) {
 		dao.remover(id);
-		return buildResponse(null);
+		return buildId();
 	}
 
 	@POST
