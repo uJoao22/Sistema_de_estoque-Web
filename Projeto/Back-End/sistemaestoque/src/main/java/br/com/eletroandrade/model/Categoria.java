@@ -35,7 +35,7 @@ public class Categoria {
 
 	@NotNull
 	@Size(max = 50)
-	@Column(name = "nome", nullable = false)
+	@Column(name = "nome", nullable = false, length = 50)
 	public String getNome() {
 		return nome;
 	}
