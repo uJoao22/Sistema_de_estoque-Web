@@ -47,7 +47,7 @@ public class Produto {
 
 	@NotNull
 	@Size(max = 100)
-	@Column(name = "nome", nullable = false)
+	@Column(name = "nome", nullable = false, length = 100)
 	public String getNome() {
 		return nome;
 	}
@@ -89,7 +89,7 @@ public class Produto {
 	}
 
 	@Size(max = 30)
-	@Column(name = "marca")
+	@Column(name = "marca", length = 30)
 	public String getMarca() {
 		return marca;
 	}
@@ -99,7 +99,7 @@ public class Produto {
 	}
 
 	@Size(max = 100)
-	@Column(name = "modelo")
+	@Column(name = "modelo", length = 100)
 	public String getModelo() {
 		return modelo;
 	}

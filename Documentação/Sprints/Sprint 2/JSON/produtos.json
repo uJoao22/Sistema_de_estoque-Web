@@ -1,0 +1,31 @@
+[{
+        "codigo_produto": 1,
+        "nome": "Vaso Sanitário",
+        "id_categoria": 3,
+        "preco": 350.00,
+        "quantidade": 5,
+        "marca": "Celite",
+        "modelo": "Caixa    Acoplada",
+        "adicionais": "6 litros"
+    },
+    {
+        "codigo_produto": 2,
+        "nome": "Cerâmica",
+        "id_categoria": 1,
+        "preco": 49.00,
+        "quantidade": 100,
+        "marca": "Embramaco",
+        "modelo": null,
+        "adicionais": "Tamanho da peça: 33x60; Metro por caixa: 2,43m"
+    },
+    {
+        "codigo_produto": 3,
+        "nome": "Rejunte Branco",
+        "id_categoria": 2,
+        "preco": 15.00,
+        "quantidade": 50,
+        "marca": "Precon",
+        "modelo": null,
+        "adicionais": "1 kg"
+    }
+]

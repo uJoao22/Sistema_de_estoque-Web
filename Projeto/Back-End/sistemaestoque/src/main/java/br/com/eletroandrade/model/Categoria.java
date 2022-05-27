@@ -23,7 +23,7 @@ public class Categoria {
 	}
 	
 	@Id
-	@Column(name = "codigo_produto")
+	@Column(name = "id_categoria")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long getId() {
 		return id;
@@ -35,7 +35,7 @@ public class Categoria {
 
 	@NotNull
 	@Size(max = 50)
-	@Column(name = "nome", nullable = false)
+	@Column(name = "nome", nullable = false, length = 50)
 	public String getNome() {
 		return nome;
 	}

@@ -1,0 +1,14 @@
+[
+    {
+        "id_categoria": 1,
+        "nome": "Revestimentos"
+    },
+    {
+        "id_categoria": 2,
+        "nome": "Argamassa"
+    },
+    {
+        "id_categoria": 3,
+        "nome": "Sanitários"
+    }
+]
