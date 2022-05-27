@@ -48,7 +48,7 @@ public class CategoriaDao extends Dao<Categoria> {
 
 	@Override
 	public List<Categoria> listAll() {
-		String jpql = "SELECT c FROM categoria c";
+		String jpql = "SELECT c FROM Categoria c";
 		return em.createQuery(jpql, Categoria.class).getResultList();
 	}
 
