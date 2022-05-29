@@ -1,4 +1,4 @@
-package br.com.eletroandrade.model;
+package br.com.eletroandrade.sistemaestoque.model;
 
 import java.util.Date;
 

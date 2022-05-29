@@ -1,13 +1,13 @@
-package br.com.eletroandrade.dao;
+package br.com.eletroandrade.sistemaestoque.dao;
 
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 
-import br.com.eletroandrade.model.Categoria;
-import br.com.eletroandrade.util.Dao;
-import br.com.eletroandrade.util.Repository;
+import br.com.eletroandrade.sistemaestoque.model.Categoria;
+import br.com.eletroandrade.sistemaestoque.util.Dao;
+import br.com.eletroandrade.sistemaestoque.util.Repository;
 
 public class CategoriaDao extends Dao<Categoria> {
 	private static final long serialVersionUID = 1L;
