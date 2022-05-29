@@ -1,4 +1,4 @@
-package br.com.eletroandrade.util;
+package br.com.eletroandrade.sistemaestoque.util;
 
 import java.io.Serializable;
 import java.util.List;

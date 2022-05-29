@@ -1,4 +1,4 @@
-package br.com.eletroandrade.action;
+package br.com.eletroandrade.sistemaestoque.action;
 
 import java.util.List;
 
@@ -14,9 +14,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import br.com.eletroandrade.dao.CategoriaDao;
-import br.com.eletroandrade.model.Categoria;
-import br.com.eletroandrade.util.Action;
+import br.com.eletroandrade.sistemaestoque.dao.CategoriaDao;
+import br.com.eletroandrade.sistemaestoque.model.Categoria;
+import br.com.eletroandrade.sistemaestoque.util.Action;
 
 @Path("categorias")
 @Produces(MediaType.APPLICATION_JSON)

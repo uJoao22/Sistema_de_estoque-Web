@@ -1,4 +1,4 @@
-package br.com.eletroandrade.rest;
+package br.com.eletroandrade.sistemaestoque.rest;
 
 import javax.ws.rs.core.Feature;
 import javax.ws.rs.core.FeatureContext;
@@ -16,4 +16,5 @@ public class CorsFeature implements Feature {
         context.register(corsFilter);
         return true;
 	}
+	
 }

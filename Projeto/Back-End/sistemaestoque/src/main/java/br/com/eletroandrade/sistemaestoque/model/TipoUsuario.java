@@ -1,4 +1,4 @@
-package br.com.eletroandrade.model;
+package br.com.eletroandrade.sistemaestoque.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
