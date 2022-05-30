@@ -1,4 +1,4 @@
-package br.com.eletroandrade.model;
+package br.com.eletroandrade.sistemaestoque.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -35,7 +35,7 @@ public class Categoria {
 
 	@NotNull
 	@Size(max = 50)
-	@Column(name = "nome", nullable = false)
+	@Column(name = "nome", nullable = false, length = 50)
 	public String getNome() {
 		return nome;
 	}
