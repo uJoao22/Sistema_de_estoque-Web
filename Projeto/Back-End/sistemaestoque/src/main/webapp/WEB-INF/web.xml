@@ -4,22 +4,36 @@
          
   <display-name>sistemaestoque</display-name>
   
-  	<servlet>
+   	<servlet>
   		<servlet-name>Jersey RESTful</servlet-name>
   	    	<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
     	<init-param>
-      	<param-name>com.sun.jersey.config.property.packages</param-name>
-
-	      <param-value>br.com.eletroandrade.sistemaestoque.action</param-value>
-	
+      		<param-name>com.sun.jersey.config.property.packages</param-name>
+	      	<param-value>br.com.eletroandrade.sistemaestoque.action</param-value>
     	</init-param>
+    	
+    	<init-param>
+            <param-name>com.sun.jersey.config.feature.DisableWADL</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        
     	<load-on-startup>1</load-on-startup>
   	</servlet>
-  
+  	
   	<servlet-mapping>
     	<servlet-name>Jersey RESTful</servlet-name>
     	<url-pattern>/*</url-pattern>
   	</servlet-mapping>
+  	
+   	<filter>
+		<filter-name>CORS</filter-name>
+		<filter-class>com.thetransactioncompany.cors.CORSFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>CORS</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
   	
   	<context-param>
 		<param-name>primefaces.FONT_AWESOME</param-name>
