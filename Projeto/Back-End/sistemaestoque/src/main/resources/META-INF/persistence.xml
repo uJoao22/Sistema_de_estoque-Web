@@ -6,12 +6,12 @@
 	
 	<persistence-unit name="sistemaestoque" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-
+		
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sistemaEstoque" />
-			<property name="javax.persistence.jdbc.user" value="root" />
-			<property name="javax.persistence.jdbc.password" value="apsis" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://us-cdbr-east-05.cleardb.net:3306/heroku_f7d1df4195a9cf2" />
+			<property name="javax.persistence.jdbc.user" value="bf5c2f5043e1bb" />
+			<property name="javax.persistence.jdbc.password" value="6b214287" />
 		
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.show_sql" value="true" />
