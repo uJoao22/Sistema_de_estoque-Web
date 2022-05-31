@@ -1,1 +1,8 @@
-node_modules
+Projeto/Back-End/.metadata/
+Projeto/Back-End/RemoteSystemsTempFiles/
+Projeto/Back-End/Servers/
+Projeto/Back-End/sistemaestoque/target/
+Projeto/Back-End/sistemaestoque/bin/
+Projeto/Back-End/sistemaestoque/.classpath
+Projeto/Back-End/sistemaestoque/.project
+Projeto/Back-End/sistemaestoque/src/main/resources/META-INF/persistence.xml
