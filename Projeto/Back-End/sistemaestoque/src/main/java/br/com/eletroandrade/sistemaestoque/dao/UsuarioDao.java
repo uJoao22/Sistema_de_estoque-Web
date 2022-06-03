@@ -3,6 +3,7 @@ package br.com.eletroandrade.sistemaestoque.dao;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import br.com.eletroandrade.sistemaestoque.model.Usuario;
@@ -50,6 +51,22 @@ public class UsuarioDao extends Dao<Usuario> {
 	public List<Usuario> listAll() {
 		String jpql = "SELECT u FROM Usuario u";
 		return em.createQuery(jpql, Usuario.class).getResultList();
+	}
+	
+	public Usuario authUser(String email, String senha) {
+		Query qry =  em.createQuery("select u from Usuario u "
+				+ " where u.email = :email "
+				+ "  and u.senha = :senha ")
+				.setParameter("email", email)
+				.setParameter("senha", senha);
+		
+		@SuppressWarnings("unchecked")
+		List<Usuario> list = qry.getResultList();
+		
+		if(list.isEmpty())
+			return null;
+		
+		return list.get(0);
 	}
 
 }

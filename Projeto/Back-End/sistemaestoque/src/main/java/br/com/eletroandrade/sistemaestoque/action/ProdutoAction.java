@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -21,7 +20,7 @@ import br.com.eletroandrade.sistemaestoque.util.Action;
 
 @Path("produtos")
 @Produces(MediaType.APPLICATION_JSON+ ";charset=UTF-8")
-@Consumes(MediaType.APPLICATION_JSON+ ";charset=UTF-8")
+//@Consumes(MediaType.APPLICATION_JSON+ ";charset=UTF-8")
 @RequestScoped
 public class ProdutoAction extends Action<Produto, Long> {
 	private static final long serialVersionUID = 1L;
