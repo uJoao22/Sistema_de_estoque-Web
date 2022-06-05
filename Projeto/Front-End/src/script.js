@@ -1,12 +1,9 @@
 $("#NavBar").load("./components/NavBar/NavBar.html");
 $("#Footer").load("./components/Footer/Footer.html");
 
-// document.querySelector("#login").addEventListener("click", () => {
-//     window.location.href = "./modules/menu/index.html";
-//     // $.get('http://localhost:8082/sistemaestoque/produtos', (data) =>{
-//     //     console.log(data);
-//     // });
-// });
+if(localStorage.getItem('token') != null) {
+    window.location.href = "./modules/menu/index.html";
+}
 
 $('#formLogin').submit((e) => {
     e.preventDefault();
@@ -29,7 +26,6 @@ function logar() {
         nome: '',
         senha: '',
     };
-    // url: 'http://localhost:8082/sistemaestoque/usuarios/login?email=andrade@eletroandrade.com&senha=andrade123',
 
     $.ajax({
         type: 'GET',
