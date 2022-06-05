@@ -1,5 +1,7 @@
 package br.com.eletroandrade.sistemaestoque.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,8 +18,10 @@ import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.Range;
 
 @Entity
-@Table(name = "produtos")
-public class Produto {
+@Table(name = "produto")
+public class Produto implements Serializable {
+	private static final long serialVersionUID = 3375655130283775015L;
+	
 	private Long codigo;
 	private String nome;
 	private Categoria categoria;
@@ -79,7 +83,7 @@ public class Produto {
 	}
 
 	@NotNull
-	@Column(name = "quantidade", nullable = false)
+	@Column(name = "quantidade", nullable = false, columnDefinition = "int4 default 0")
 	public int getQuantidade() {
 		return quantidade;
 	}
