@@ -61,7 +61,7 @@ public class Produto implements Serializable {
 	}
 
 	@NotNull
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria", nullable = false)
 	public Categoria getCategoria() {
 		return categoria;

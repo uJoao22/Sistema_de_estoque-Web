@@ -74,7 +74,7 @@ public class Usuario {
 	}
 
 	@NotNull
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_tipo", referencedColumnName = "id_tipo", nullable = false)
 	public TipoUsuario getTipo() {
 		return tipo;

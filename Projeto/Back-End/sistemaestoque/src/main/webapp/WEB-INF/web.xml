@@ -5,40 +5,41 @@
   <display-name>sistemaestoque</display-name>
   
    	<servlet>
-  		<servlet-name>Jersey RESTful</servlet-name>
-  	    	<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+  		<servlet-name>br.com.eletroandrade.sistemaestoque.rest.MyApplication</servlet-name>
+  	    	<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+
+    	<init-param>
+	   		<param-name>javax.ws.rs.Application</param-name>
+	        <param-value>br.com.eletroandrade.sistemaestoque.rest.MyApplication</param-value>
+	    </init-param>
+	    
     	<init-param>
       		<param-name>com.sun.jersey.config.property.packages</param-name>
 	      	<param-value>br.com.eletroandrade.sistemaestoque.action</param-value>
     	</init-param>
     	
     	<init-param>
-            <param-name>com.sun.jersey.config.feature.DisableWADL</param-name>
-            <param-value>true</param-value>
+            <param-name>jersey.config.server.provider.classnames</param-name>
+            <param-value>br.com.eletroandrade.sistemaestoque.rest.CORSFilter</param-value>
         </init-param>
         
         <init-param>
-	        <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
-	        <param-value>true</param-value>
-	    </init-param>
+		  <param-name>jersey.config.server.provider.classnames</param-name>
+		  <param-value>org.glassfish.jersey.jackson.JacksonFeature</param-value>
+		</init-param>
+		
+		<init-param>
+		    <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+		    <param-value>true</param-value>
+		</init-param>
         
     	<load-on-startup>1</load-on-startup>
   	</servlet>
   	
   	<servlet-mapping>
-    	<servlet-name>Jersey RESTful</servlet-name>
+    	<servlet-name>br.com.eletroandrade.sistemaestoque.rest.MyApplication</servlet-name>
     	<url-pattern>/*</url-pattern>
   	</servlet-mapping>
-  	
-   	<filter>
-		<filter-name>CORS</filter-name>
-		<filter-class>com.thetransactioncompany.cors.CORSFilter</filter-class>
-	</filter>
-	
-	<filter-mapping>
-		<filter-name>CORS</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
   	
   	<context-param>
 		<param-name>primefaces.FONT_AWESOME</param-name>

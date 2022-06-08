@@ -45,7 +45,7 @@ public class VendaProduto implements Serializable {
 	}
 	
 	@NotNull
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name = "id_venda", referencedColumnName="id_venda")
 	public Venda getVenda() {
 		return venda;
@@ -56,7 +56,7 @@ public class VendaProduto implements Serializable {
 	}
 	
 	@NotNull
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name = "codigo_produto", referencedColumnName="codigo_produto")
 	public Produto getProduto() {
 		return produto;

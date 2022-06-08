@@ -22,14 +22,13 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import br.com.eletroandrade.sistemaestoque.action.VendaProduto;
 
 @Entity
 @Table(name = "venda")
-@JsonIgnoreProperties(ignoreUnknown = true, value = { "hibernateLazyInitializer", "handler" })
+//@JsonIgnoreProperties(ignoreUnknown = true, value = { "hibernateLazyInitializer", "handler" })
 public class Venda implements Serializable {
 	private static final long serialVersionUID = 3176470146682589700L;
 	
