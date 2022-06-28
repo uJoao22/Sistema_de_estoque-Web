@@ -20,8 +20,8 @@ import br.com.eletroandrade.sistemaestoque.model.Venda;
 import br.com.eletroandrade.sistemaestoque.util.Action;
 
 @Path("vendas")
-@Produces(MediaType.APPLICATION_JSON+ ";charset=UTF-8")
-@Consumes(MediaType.APPLICATION_JSON+ ";charset=UTF-8")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 @RequestScoped
 public class VendaAction extends Action<Venda, Long> {
     private static final long serialVersionUID = 1L;

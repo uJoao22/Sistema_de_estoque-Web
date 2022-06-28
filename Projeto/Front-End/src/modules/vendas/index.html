@@ -27,62 +27,22 @@
     </nav>
 
     <main class="container">
-        <form class="col-12 col-md-6 float-end row justify-content-between mb-3">
-            <div class="col-8 p-0">
-                <div class="input-group input-group-sm">
-                    <input type="search" class="form-control" placeholder="Buscar por data"/>
-                    <button type="button" class="btn btn-outline-primary">Buscar</button>
-                </div>
-            </div>
-
-            <button type="button" class="btn btn-primary btn-sm col-3" id="novaVenda">
-                <i class="fa-solid fa-plus"></i> Novo
-            </button>
-        </form>
-
-
+        <button type="button" class="btn btn-primary btn-sm col-2 mb-3 float-end" id="novaVenda">
+            <i class="fa-solid fa-plus"></i> Novo
+        </button>
 
         <div>
-            <table class="table table-info table-striped">
+            <table class="table table-info table-striped" id="vendas">
                 <thead>
                     <tr>
                         <th scope="col">Código</th>
-                        <th scope="col">Data</th>
+                        <td scope="col">Data</td>
                         <td scope="col">Forma de Pagamento</td>
+                        <td scope="col">Valor Total</td>
                         <td>Opções</td>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">0001</th>
-                        <td>02/04/2022</td>
-                        <td>Cartão de Crédito</td>
-                        <td>
-                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#infoVenda">
-                                <i class="fa-solid fa-eye"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">0002</th>
-                        <td>29/04/2022</td>
-                        <td>Dinheiro</td>
-                        <td>
-                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#infoVenda">
-                                <i class="fa-solid fa-eye"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">0003</th>
-                        <td>10/05/2022</td>
-                        <td>PIX</td>
-                        <td>
-                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#infoVenda">
-                                <i class="fa-solid fa-eye"></i>
-                            </button>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </div>
@@ -93,52 +53,37 @@
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="infoVendaLabel">Venda - Código xxxx</h5>
+                        <h5 class="modal-title" id="infoVendaLabel">Venda - Código <span id="codVenda"></span></h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="h-75" style="overflow-y: visible;">
-                            <table class="table table-info table-striped" >
+                            <table class="table table-info table-striped" id="produtos">
                                 <thead>
                                     <tr>
                                         <th scope="col">Código</th>
-                                        <th scope="col">Data</th>
-                                    <td scope="col">Preço</td>
-                                    <td scope="col">Quantidade</td>
-                                </tr>
-                            </thead>
+                                        <td scope="col">Nome</td>
+                                        <td scope="col">Preço</td>
+                                        <td scope="col">Quantidade</td>
+                                    </tr>
+                                </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">0001</th>
-                                    <td>10/05/2022</td>
-                                    <td>R$ 40,00</td>
-                                    <td>2</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">0002</th>
-                                    <td>10/05/2022</td>
-                                    <td>R$ 50,00</td>
-                                    <td>1</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">0003</th>
-                                    <td>10/05/2022</td>
-                                    <td>R$ 80,00</td>
-                                    <td>1</td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
 
                         <div class="row mb-3">
-                            <div class="col-6">
-                                <label for="pagamento" class="form-label">Forma de Pagamento</label>
-                                <input type="text" class="form-control" id="pagamento" value="Dinheiro" disabled>
+                            <div class="col-md-4 col-12">
+                                <label for="dataVenda" class="form-label">Data</label>
+                                <input type="text" class="form-control" id="dataVenda" disabled>
                             </div>
-                            <div class="col-6">
+                            <div class="col-md-4 col-12">
+                                <label for="pagamento" class="form-label">Forma de Pagamento</label>
+                                <input type="text" class="form-control" id="pagamento" disabled>
+                            </div>
+                            <div class="col-md-4 col-12">
                                 <label for="total" class="form-label">Total</label>
-                                <input type="text" class="form-control" id="total"
-                                value="R$ 210,00" disabled>
+                                <input type="text" class="form-control" id="total" disabled>
                             </div>
                         </div>
                     </div>

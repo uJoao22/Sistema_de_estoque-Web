@@ -1,6 +1,3 @@
-$("#NavBar").load("../../components/NavBar/NavBar.html");
-$("#Footer").load("../../components/Footer/Footer.html");
-
 let produtos = [];
 let selected = {};
 let edit = false;
@@ -17,96 +14,101 @@ const modeloProduto = {
     codigo: ''
 };
 
+
 $(document).ready(() => {
     validation();
-    combo();
-
-    $.get('http://localhost:8082/sistemaestoque/produtos').then((data) =>{
-        console.log(data);
-        produtos = data;
-        listaProdutos(produtos);
-    }).fail(() => carregamentoFalho());
-
-    // $("#filtro").keyup(() => {
-    //     console.log(this.val);
-    // });
+    carregaProdutos();
 
     $('#formProduto').submit((e) => {
         e.preventDefault();
         onSubmitDialog();
     });
 
-    $("#buscar").click(() => {
-        const filtro = $("#filtro").val();
-        console.log(produtos);
-        let produtosFiltrados = [];
-        produtos.forEach((prod) => {
-            if(prod.codigo == filtro)
-                produtosFiltrados.push(prod);
-        });
-        console.log(produtosFiltrados);
-
-        filtroBusca(produtosFiltrados);
+    $("#formFiltro").submit((e) => {
+        e.preventDefault()
+        buscarProduto();
     });
 });
 
 function validation() {
     let userLogado = JSON.parse(localStorage.getItem('user'));
-    if(userLogado.tipo.nivel !== "GERENTE" && userLogado.tipo.nivel !== "VENDEDOR" && userLogado.tipo.nivel !== "REPOSITOR") {
+    if(userLogado.tipo.nivel !== "GERENTE" && userLogado.tipo.nivel !== "VENDEDOR" && userLogado.tipo.nivel !== "REPOSITOR")
         window.location.href = "../menu";
-    }
-};
+    else
+        fetch();
+}
 
-function filtroBusca(produtos) {
-    if(produtos.length > 0) {
-        // produtos.forEach((prod) => {
-            const tbody = document.getElementsByTagName("tbody")[0];
-            const itens = tbody.getElementsByTagName('tr');
-            const itensRemove = tbody.getElementsByTagName('tr');
+function fetch() {
+    $("#NavBar").load("../../components/NavBar/NavBar.html");
+    $("#Footer").load("../../components/Footer/Footer.html");
 
-            console.log(itens);
-            for(let i=0; i<itens.length; i++) {
-                tbody.removeChild(itensRemove[i]);
-                console.log(itens[i]);
-            }
-        // });
-        // listaProdutos(produtos);
-    }
-};
+    combo();
+    carregaProdutos();
+}
+
+function carregaProdutos() {
+    $.get('http://localhost:8082/sistemaestoque/produtos').then((data) =>{
+        produtos = data;
+        listaProdutos(produtos);
+    }).fail(() => carregamentoFalho());
+}
 
 function listaProdutos(data) {
-    if(data.length>0) {
-        data.forEach((prod, idx) => {
-            $(".table>tbody").append(`<tr>
-            <th scope='row'>${prod.codigo}</th>
-            <td>${prod.nome}</td>
-            <td>${prod.categoria.nome}</td>
-            <td>${prod.preco}</td>
-            <td>${prod.quantidade}</td>
-            <td>
-            <button type="button" class="btn btn-primary btn-sm" onclick="editProduto(${idx})" data-bs-toggle="modal" data-bs-target="#infoProduto">
-            <i class="fa-solid fa-pencil"></i>
-            </button>
-            </td>
-            </tr>`);
-        });
-    } else
+    if(data.length>0)
+        adicionaProduto(data);
+    else
         carregamentoFalho();
-};
+}
 
+function adicionaProduto(produto) {
+    $(".table>tbody").empty();
+    produto.forEach((prod, idx) => {
+        $(".table>tbody").append(`<tr>
+        <th scope='row'>${prod.codigo}</th>
+        <td>${prod.nome}</td>
+        <td>${prod.categoria.nome}</td>
+        <td>${formatMoeda(prod.preco)}</td>
+        <td>${prod.quantidade}</td>
+        <td>
+        <button type="button" class="btn btn-primary btn-sm" onclick="editProduto(${idx})" data-bs-toggle="modal" data-bs-target="#infoProduto">
+        <i class="fa-solid fa-pencil"></i>
+        </button>
+        <button type="button" class="btn btn-danger btn-sm" onclick="deleteProduto(${idx})">
+        <i class="fa-solid fa-trash-can"></i>
+        </button>
+        </td>
+        </tr>`);
+    });
+}
+
+function carregamentoFalho() {
+    $(".table>tbody").empty();
+    $(".table>tbody").append('<tr><td colspan="6" class="table-light text-center">Sem dados</td></tr>');
+}
+
+function deleteProduto(idx) {
+    selected = produtos[idx];
+
+    $.ajax({
+        type: 'DELETE',
+        url: `http://localhost:8082/sistemaestoque/produtos/${selected.codigo}`,
+        headers: { 'Content-Type': 'application/json' },
+    }).done(() => {
+        carregaProdutos();
+    });
+}
 
 function novoProduto() {
     selected = { ...modeloProduto };
     edit = false;
     openModal(selected, "Salvar");
-};
+}
 
 function editProduto(idx) {
     selected = produtos[idx];
-    console.log(selected);
     edit = true;
     openModal(selected, "Atualizar");
-};
+}
 
 function openModal(param, msg){
     document.querySelector("#submit").innerHTML = msg;
@@ -118,11 +120,12 @@ function openModal(param, msg){
     document.querySelector("#marca").value = param.marca;
     document.querySelector("#modelo").value = param.modelo;
     document.querySelector("#adicionais").value = param.adicionais;
-};
+}
 
-function carregamentoFalho() {
-    $(".table>tbody").append('<tr><td colspan="6" class="table-light text-center">Sem dados</td></tr>');
-};
+function cancelDialog() {
+    $("#cancelModal").click();
+    carregaProdutos();
+}
 
 function onSubmitDialog() {
     const form = new FormData(document.querySelector("#formProduto"))
@@ -132,56 +135,64 @@ function onSubmitDialog() {
         item[key] = key === 'categoria' ? {id: form.get(key)} : form.get(key);
     });
 
-    console.log(item);
-
     if(edit)
         update(item);
     else
         create(item);
-};
+}
 
 function create(obj) {
-    console.log(obj);
-    // $.post('http://localhost:8082/sistemaestoque/produtos', obj, (data) => {
-        // console.log(data);
-    // });
-
-    // $.ajax({
-    //     type: 'POST',
-    //     url: 'http://localhost:8082/sistemaestoque/produtos',
-    //     data: obj,
-    //     dataType: 'application/json;charset=UTF-8',
-    //     headers: {
-    //         contentType: 'application/json',
-    //     }
-    // }).then((data) => {
-    //     console.log(data);
-    // });
-};
+    $.ajax({
+        type: 'POST',
+        url: 'http://localhost:8082/sistemaestoque/produtos',
+        data: JSON.stringify(obj),
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    }).done(() => {
+        cancelDialog();
+    });
+}
 
 function update(obj) {
-    console.log(JSON.stringify(obj));
     $.ajax({
         type: 'PUT',
         url: 'http://localhost:8082/sistemaestoque/produtos',
         data: JSON.stringify(obj),
-        contentType : 'application/json',
-        dataType : 'json',
+        headers: {
+            'Content-Type': 'application/json',
+        }
     }).then((data) => {
-        console.log(data);
+        cancelDialog();
+    });
+}
+
+function buscarProduto() {
+    const filtro = document.querySelector("#filtro").value;
+
+    if(filtro == '') {
+        closeAlert();
+        carregaProdutos();
+        return;
+    }
+
+    $.get(`http://localhost:8082/sistemaestoque/produtos/${filtro}`).then((data) => {
+        closeAlert();
+        listaProdutos([data]);
+    }).fail(() => {
+        carregamentoFalho();
+        document.querySelector("#alert").setAttribute('style', 'display: flex');
     });
 
-    // fetch('http://localhost:8082/sistemaestoque/produtos', {
-    //     method: 'put',
-    //     mode: 'no-cors',
-    //     headers: {
-    //       'Accept': 'application/json',
-    //       'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(obj)
-    // }).then((data) => {
-    //     console.log(data);
-    // });
+    document.querySelector("#filtro").value = '';
+}
+
+function closeAlert() {
+    document.querySelector("#alert").setAttribute('style', 'display: none');
+}
+
+function formatMoeda(valor) {
+    return valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
 }
 
 function combo() {
